@@ -1,0 +1,18 @@
+-- mysql
+
+CREATE TABLE files(
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  genre VARCHAR(255) NOT NULL,
+  format VARCHAR(255) NOT NULL,
+  path VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE users(
+  id INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+INSERT INTO users(email, password) VALUES('dan@gmail.com','12345678');

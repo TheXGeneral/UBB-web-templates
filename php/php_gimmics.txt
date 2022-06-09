@@ -1,0 +1,12 @@
+apperently php has an issue regarding the use of variables in functions
+I have to specificly mark a variable as global in the function scope 
+aka
+
+$data = 1;
+function my_func(){
+  global $data;
+
+  // now I ca use $data, otherwise it's undefined 
+}
+
+

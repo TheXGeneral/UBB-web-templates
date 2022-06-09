@@ -1,0 +1,31 @@
+there are 2 important files that make the whole code work properly, checking if the user is connected
+
+
+login.php, after it checks that I actually have a valid user with data that my client has put into input fields,
+I generate a token 
+php package manager is stupid as fuck, so no JWT for us, instead I used openssl
+
+that token is sent to the client and the js saves it into local storage
+
+------
+register inserts the data into the db and then returns a token
+
+
+--------------------------------------------------------------------------------------
+
+When I want to call a route that I want to be protected, in the header of the ajax call, i send 
+Authorization: Bearer + token
+
+first word is just a convention, does not interfere with my code, when I parse the token, I just remove it 
+
+the auth.php holds a function that takes my token, removes the Bearer word and decrypts the token
+with that decrypted value, I do a querry to the db and try  to see if there is an actual user with id= what I decrypted
+
+if there is, I return true, meaning the user is connected and it can proceed to the 'protected_route'
+otherwise, any route that is protected will return prematurely and will not allow the user to perform any other action
+-----------------------------------------------------------
+
+db.php initializes the db connection, DO NOT TOUCH THAT 
+db.sql is just my sql schema
+env.php is used to store constants ( not created as constants tho, are just variables that I use in all the project)
+

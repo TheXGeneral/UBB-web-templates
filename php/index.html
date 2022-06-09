@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<title>File system management</title>
+		<style></style>
+		<link rel="stylesheet" href="./index.css" />
+	</head>
+	<body>
+		<nav>
+			<button id="action_botton" onclick="open_log_modal()">Login</button>
+		</nav>
+
+		<div id="modal">
+			<div id="login">
+				<button class="close_button" onclick="close_log_modal()">X</button>
+				<form>
+					<label for="email">Email</label>
+					<input type="email" name="email" id="log_email" placeholder="Email" />
+					<label for="password">Password</label>
+					<input type="password" name="password" id="log_password" placeholder="Password" />
+					<a onclick="go_register()">I don't have an account</a>
+				</form>
+				<button onclick="login()">Login</button>
+			</div>
+			<div id="register">
+				<button class="close_button" onclick="close_log_modal()">X</button>
+				<form>
+					<label for="email">Email</label>
+					<input type="email" name="email" id="reg_email" placeholder="Email" />
+					<label for="password">Password</label>
+					<input type="password" name="password" id="reg_password" placeholder="Password" />
+					<label for="password">Confirm password</label>
+					<input type="password" name="password_confirm" id="reg_repassword" placeholder="Confirm password" />
+					<a onclick="go_login()">Already have an account</a>
+				</form>
+				<button onclick="register()">Register</button>
+			</div>
+		</div>
+
+		<div class="main">
+			<input type="text" name="search" id="search" placeholder="Search" />
+			<button onclick="getData()">Search</button>
+			<div class="items">
+				<table class="table">
+					<tr>
+						<th>#</th>
+						<th>Title</th>
+						<th>Genre</th>
+						<th>Format</th>
+						<th>Path</th>
+						<th></th>
+					</tr>
+					<tbody id="mytbody"></tbody>
+				</table>
+			</div>
+			<div class="iframe_div">
+				<iframe id="file_frame" src="" width="100%" height="400px"></iframe>
+			</div>
+		</div>
+
+		<div class="buttons-div" id="buttons-div">
+			<form>
+				<p>ID: <span id="itemid"></span></p>
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name" />
+				<label for="genre">Genre:</label>
+				<input type="text" name="genre" id="genre" />
+				<label for="format">Format:</label>
+				<input type="text" name="format" id="format" />
+				<label for="path">Path</label>
+				<input type="text" name="path" id="path" />
+			</form>
+			<div>
+				<button onclick="deselect()">DeSelect</button>
+				<button onclick="add_element()">Add</button>
+				<button onclick="delete_element()">Delete</button>
+				<button onclick="update_element()">Update</button>
+			</div>
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="index.js"></script>
+	<script src="login.js"></script>
+</html>
